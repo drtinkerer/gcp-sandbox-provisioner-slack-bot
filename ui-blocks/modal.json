@@ -1,0 +1,156 @@
+{
+	"type": "modal",
+	"title": {
+		"type": "plain_text",
+		"text": "My App",
+		"emoji": true
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Submit",
+		"emoji": true
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel",
+		"emoji": true
+	},
+	"blocks": [
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*Hi <fakelink.toUser.com|@David>!* Here's how I can help you get a sandbox environment on AWS/GCP/Azure:"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "input",
+			"block_id": "cloud_provider",
+			"element": {
+				"type": "static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Select an item",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Amazon Web Services",
+							"emoji": true
+						},
+						"value": "AWS"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Google Cloud Platform",
+							"emoji": true
+						},
+						"value": "GCP"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Microsoft Azure",
+							"emoji": true
+						},
+						"value": "Azure"
+					}
+				],
+				"action_id": "static_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": ":cloud: Choose Cloud Provider",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "requested_time_duration",
+			"element": {
+				"type": "static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "e.g 2 hours",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "2 hours",
+							"emoji": true
+						},
+						"value": "value-0"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "4 hours",
+							"emoji": true
+						},
+						"value": "value-1"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "8 hours",
+							"emoji": true
+						},
+						"value": "value-2"
+					}
+				],
+				"action_id": "static_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": ":stopwatch:  Time Duration\n",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "additional_users",
+			"optional": true,
+			"element": {
+				"type": "multi_users_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Optional",
+					"emoji": true
+				},
+				"action_id": "multi_users_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Select Additional Users to grant access to sandbox env",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "reason_for_request",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "plain_text_input-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "State the reason for request",
+				"emoji": true
+			}
+		},
+		{
+			"type": "divider"
+		}
+	]
+}

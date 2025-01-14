@@ -1,0 +1,184 @@
+{
+	"type": "modal",
+	"title": {
+		"type": "plain_text",
+		"text": "Sandbox Provisioner",
+		"emoji": true
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Submit",
+		"emoji": true
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel",
+		"emoji": true
+	},
+	"blocks": [
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Hello there, Here's how I can help you get a sandbox environment on AWS/GCP/Azure:"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "input",
+			"block_id": "cloud_provider",
+			"element": {
+				"type": "static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Choose Cloud Provider",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Amazon Web Services",
+							"emoji": true
+						},
+						"value": "AWS"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Google Cloud Platform",
+							"emoji": true
+						},
+						"value": "GCP"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Microsoft Azure",
+							"emoji": true
+						},
+						"value": "AZURE"
+					}
+				],
+				"action_id": "static_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": ":cloud: Cloud Provider",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "requested_duration_hours",
+			"element": {
+				"type": "static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Required Duration in hours e.g. 2",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "2 hours",
+							"emoji": true
+						},
+						"value": "2"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "4 hours",
+							"emoji": true
+						},
+						"value": "4"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "8 hours",
+							"emoji": true
+						},
+						"value": "8"
+					}
+				],
+				"action_id": "static_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": ":stopwatch:  Time Duration",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "team_name",
+			"element": {
+				"type": "static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Choose Team Name",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "PLACEHOLDER",
+							"emoji": true
+						},
+						"value": "PLACEHOLDER"
+					}
+				],
+				"action_id": "static_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": ":football:  Team Name",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "request_description",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "plain_text_input-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": ":spiral_note_pad: Reason for request",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "additional_users",
+			"optional": true,
+			"element": {
+				"type": "multi_users_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Optional",
+					"emoji": true
+				},
+				"action_id": "multi_users_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": ":raising_hand: Select Additional Users to grant access to sandbox env",
+				"emoji": true
+			}
+		},
+		{
+			"type": "divider"
+		}
+	]
+}

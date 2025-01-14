@@ -1,0 +1,37 @@
+{
+	"type": "home",
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": "Welcome to your _App's Home tab :tada:",
+				"emoji": true
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Click the button below to request sandbox environment."
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"action_id": "button_click",
+					"style": "primary",
+					"text": {
+						"type": "plain_text",
+						"text": "Request Cloud Provider Sandbox"
+					}
+				}
+			]
+		}
+	]
+}
