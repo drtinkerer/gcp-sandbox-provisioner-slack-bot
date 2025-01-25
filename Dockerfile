@@ -1,7 +1,8 @@
-FROM python:3.9
+FROM python:3.12-slim
 
-ADD . /app
-RUN python3 -m pip install --upgrade pip
-RUN pip3 install -r /app/requirements.txt
+COPY ./app /app
+COPY requirements.txt requirements.txt
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 CMD ["python3", "/app/main.py"]

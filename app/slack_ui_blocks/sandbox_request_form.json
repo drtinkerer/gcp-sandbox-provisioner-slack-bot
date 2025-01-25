@@ -1,5 +1,6 @@
 {
 	"type": "modal",
+	"callback_id": "sandbox_request_form_submit",
 	"title": {
 		"type": "plain_text",
 		"text": "Sandbox Provisioner",
