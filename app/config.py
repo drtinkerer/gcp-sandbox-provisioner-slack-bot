@@ -1,9 +1,10 @@
 from pydantic_settings import BaseSettings
 import json
 
-
 class Config(BaseSettings):
     AUTHORIZED_TEAM_FOLDERS: str
+    SLACK_APP_TOKEN: str
+    SLACK_BOT_TOKEN: str
 
     class Config:
         # env_file = None

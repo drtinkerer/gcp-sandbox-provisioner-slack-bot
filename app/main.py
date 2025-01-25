@@ -2,10 +2,14 @@ import os
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from slack_ui import BlockTemplates
+from config import Config
+
+config = Config()
+# Load UI blocks
 ui_blocks = BlockTemplates()
 
-# Initializes your app with your bot token and socket mode handler
-app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
+# Initialize the Slack app with bot token
+app = App(token=config.SLACK_BOT_TOKEN)
 
 @app.message("hello")
 def message_hello(message, say):
@@ -14,6 +18,7 @@ def message_hello(message, say):
 @app.event("app_home_opened")
 def publish_home_tab(client, event, logger):
     try:
+        # Publish dynamic home tab
         client.views_publish(
             user_id=event["user"],
             view=ui_blocks.app_home
@@ -24,13 +29,14 @@ def publish_home_tab(client, event, logger):
 @app.action("button_click")
 def open_sandbox_request_form(ack, body, client):
     ack()
+    # Dynamically updated form
     client.views_open(
         trigger_id=body["trigger_id"],
         view=ui_blocks.sandbox_request_form
     )
 
 
-@app.view("sandbox_request_form")
+@app.view("sandbox_request_form_submit")
 def handle_submission(ack, body, client, logger):
     ack()
     user_id = body["user"]["id"]
@@ -55,30 +61,12 @@ def handle_submission(ack, body, client, logger):
         }
 
         print(submission_data)
+        # print(client.users_info(user=additional_users[0]))
 
         # Open a new ephemeral modal/dialog to notify the user
         client.views_open(
             trigger_id=body["trigger_id"],
-            view={
-                "type": "modal",
-                "title": {
-                    "type": "plain_text",
-                    "text": "Submission Received"
-                },
-                "close": {
-                    "type": "plain_text",
-                    "text": "Okay"
-                },
-                "blocks": [
-                    {
-                        "type": "section",
-                        "text": {
-                            "type": "mrkdwn",
-                            "text": f"Thanks for your submission, <@{user_id}>! Your sandbox will be provisioned shortly."
-                        }
-                    }
-                ]
-            }
+            view=ui_blocks._acknowledge_sandbox_request(user_id)
         )
 
     except Exception as e:
@@ -86,5 +74,5 @@ def handle_submission(ack, body, client, logger):
 
 # Start your app
 if __name__ == "__main__":
-    SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"]).start()
+    SocketModeHandler(app, config.SLACK_APP_TOKEN).start()
 

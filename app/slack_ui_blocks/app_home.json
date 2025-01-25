@@ -5,8 +5,20 @@
 			"type": "header",
 			"text": {
 				"type": "plain_text",
-				"text": "Welcome to your _App's Home tab :tada:",
+				"text": "🚀 Welcome to Your Cloud Sandbox Provisioner! 🌥️",
 				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*Hi there!* 👋\nYour one-stop solution for provisioning cloud sandboxes across AWS, Azure, and GCP. Let's get started!"
+			},
+			"accessory": {
+				"type": "image",
+				"image_url": "https://via.placeholder.com/150",
+				"alt_text": "Welcome Image"
 			}
 		},
 		{
@@ -16,7 +28,17 @@
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": "Click the button below to request sandbox environment."
+				"text": "🎯 *Provision sandboxes on-demand in just a few clicks*\n"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "✨ *Actions Available*:\nReady to set up your cloud sandbox? Click below to get started!"
 			}
 		},
 		{
@@ -28,8 +50,17 @@
 					"style": "primary",
 					"text": {
 						"type": "plain_text",
-						"text": "Request Cloud Provider Sandbox"
+						"text": "🛠️ Request a Sandbox"
 					}
+				},
+				{
+					"type": "button",
+					"action_id": "learn_more_click",
+					"text": {
+						"type": "plain_text",
+						"text": "📘 Learn More"
+					},
+					"url": "https://your.documentation.link"
 				}
 			]
 		}

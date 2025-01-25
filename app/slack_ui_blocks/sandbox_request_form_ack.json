@@ -1,0 +1,20 @@
+{
+    "type": "modal",
+    "title": {
+        "type": "plain_text",
+        "text": "Submission Received"
+    },
+    "close": {
+        "type": "plain_text",
+        "text": "Okay"
+    },
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "Thanks for your submission, <@{user_id}>! Your sandbox will be provisioned shortly."
+            }
+        }
+    ]
+}
